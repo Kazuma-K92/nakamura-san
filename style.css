@@ -1,0 +1,674 @@
+@charset "utf-8";
+
+/* === 共通 === */
+body
+{
+  background-color: #f2ddba;
+  color: #333;
+  line-height: 1.5;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.container
+{
+  margin: 0 40px;
+}
+
+header, footer
+{
+  background-color: #ffd082;
+}
+
+section
+{
+  margin-bottom: 70px;
+}
+
+a
+{
+  color: #333;
+}
+
+@media (min-width: 769px)
+{
+  .container
+  {
+    width: 90%;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  section
+  {
+    margin-bottom: 100px;
+  }
+}
+
+/* === ヘッダー === */
+header
+{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.header-inner
+{
+  display: flex;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.logo-img
+{
+  width: 163px;
+}
+
+nav
+{
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.6);
+  display: flex;
+  align-items: center;
+  transition: bottom 0.5s;
+}
+
+.nav-list
+{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nav-list-item:not(:last-of-type)
+{
+  margin-bottom: 30px;
+}
+
+.nav-list-item a
+{
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.nav-list-item a:hover
+{
+  opacity: 0.6;
+}
+
+.hamburger
+{
+  display: block;
+  box-sizing: content-box;
+  padding: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  border-style: none;
+  background: none;
+  width: 40px;
+  height: 23px;
+  color: #333;
+}
+
+.hamburger::before, .hamburger::after
+{
+  content: '';
+  display: block;
+  background: #333;
+  height: 3px;
+  transition: 0.3s ease-in-out;
+}
+
+.hamburger::before
+{
+  transform: translateY(-10px);
+  box-shadow: 0 11px;
+}
+
+.hamburger::after
+{
+  transform: translateY(10px);
+}
+
+.open .hamburger
+{
+  z-index: 1000;
+}
+
+.open .hamburger::before
+{
+  transform: translateY(1px) rotate(45deg);
+  box-shadow: none;
+}
+
+.open .hamburger::after
+{
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.screen-reader-only
+{
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+@media (min-width: 769px)
+{
+  .header-inner
+  {
+    padding: 10px 30px;
+  }
+
+  .logo-img
+  {
+    width: 281px;
+  }
+
+  nav
+  {
+    position: static;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .nav-list
+  {
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-list-item:not(:last-of-type)
+  {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+
+  .nav-list-item a
+  {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .hamburger
+  {
+    display: none;
+  }
+}
+
+/* ========= index.html ========= */
+
+/* === メインビジュアル === */
+.mv
+{
+  position: relative;
+}
+
+.mv-img
+{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.copy-group
+{
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  padding: 20px 10px;
+  background-color: #fff;
+}
+
+.copy-main
+{
+  padding-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.copy-sub
+{
+  font-size: 14px;
+}
+
+@media (min-width: 769px)
+{
+  .copy-group
+  {
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: 100px;
+    padding: 30px;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+  }
+
+  .copy-main
+  {
+    padding-bottom: 0;
+    padding-left: 30px;
+    font-size: 4vmin;
+  }
+
+  .copy-sub
+  {
+    font-size: 3vmin;
+  }
+}
+
+/* === 営業に関するお知らせ === */
+
+.eigyo-info
+{
+  text-align: center;
+}
+
+.eigyo-info a
+{
+  font-size: 16px;
+}
+
+/* === 他ページへのリンクボタン === */
+
+.btn-item
+{
+  position: relative;
+}
+
+.btn-item img
+{
+  width: 100%;
+}
+
+.btn-item a
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%); /* 追記 */
+  -webkit-transform: translate(-50%, -50%); /* 追記 */
+  transform: translate(-50%, -50%); /* 追記 */
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (min-width: 769px)
+{
+  .btn-group
+  {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btn-item
+  {
+    width: calc( ( 100% - 100px ) / 2  );
+  }
+
+  .btn-item:first-child
+  {
+    margin-right: auto;
+  }
+
+  .btn-item a
+  {
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 30px;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+  }
+
+  .btn-item a:hover
+  {
+    background-color: #ddd;
+  }
+}
+
+/* === SNS === */
+.SNS-group
+{
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.SNS-group p
+{
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.SNS-embed
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.SNS-embed *
+{
+  margin: 0 auto;
+}
+
+.fb-wrapper
+{
+  width: 265px;
+  margin-top: 15px;
+}
+
+@media (min-width: 769px)
+{
+  .SNS-group
+  {
+    padding: 50px;
+  }
+
+  .SNS-group p
+  {
+    margin-bottom: 50px;
+  }
+
+  .SNS-embed
+  {
+    flex-direction: row;
+  }
+
+}
+
+/* === コロナ関連情報 === */
+
+.covid *
+{
+  margin-bottom: 30px;
+}
+
+.covid p
+{
+  font-size: 16px;
+}
+
+.covid-img-group img
+{
+  width: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 769px)
+{
+  .covid-img-group
+  {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .covid-img-group img
+  {
+    width: calc( ( 100% - 50px ) / 2  );
+  }
+
+  .covid-img-group img:first-child
+  {
+    margin-right: auto;
+  }
+}
+
+/* === フッター === */
+footer
+{
+  width: 100%;
+}
+
+.footer-inner
+{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 10px;
+}
+
+.store-info-item.store-name
+{
+  font-size: 24px;
+}
+
+.store-info-item
+{
+  font-size: 16px;
+}
+
+.store-info-item:not(:last-child)
+{
+  margin-bottom: 15px;
+}
+
+.store-info-item tr td:first-child
+{
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+.google-map
+{
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.google-map iframe
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 769px)
+{
+  .footer-inner
+  {
+    flex-direction: row;
+    padding: 30px;
+  }
+
+  .store-info
+  {
+    margin-right: auto;
+  }
+}
+
+/* ========= riyo.html, menu.html共通 ========= */
+
+h2
+{
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  background-color: #333;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3
+{
+  width: 100%;
+  margin-bottom: 30px;
+  color: #d73414;
+  font-size: 24px;
+  border-bottom: #d73414 solid 3px;
+}
+
+.text-wrapper
+{
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.img-wrapper
+{
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.img-wrapper img
+{
+  width: 100%;
+}
+
+@media (min-width: 769px)
+{
+  h2
+  {
+    padding: 30px 0;
+    margin: 0 auto 50px auto;
+    /* font-size: 36px; */
+  }
+
+  h3
+  {
+    margin-bottom: 50px;
+    /* font-size: 30px; */
+  }
+
+  .flex-wrapper
+  {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .text-wrapper
+  {
+    width: calc( 100% - 350px );
+    margin-bottom: 0;
+    margin-right: 50px;
+    /* font-size: 24px; */
+  }
+
+  .img-wrapper
+  {
+    width: 300px;
+    margin: 0;
+  }
+}
+
+/* ========= riyo.html ========= */
+
+.ryositsu article:not(:last-child)
+{
+  margin-bottom: 61px;
+}
+
+.ryositsu article:not(:last-child)::after
+{
+  content: '';
+  display: block;
+  background: #333;
+  width: 80%;
+  height: 1px;
+  margin: 0 auto;
+  transform: translateY(30px);
+}
+
+.price-text p:not(:last-child)
+{
+  margin-bottom: 15px;
+}
+
+@media (min-width: 769px)
+{
+  .ryositsu article:not(:last-child)
+  {
+    margin-bottom: 101px;
+  }
+
+  .ryositsu article:not(:last-child)::after
+  {
+    transform: translateY(50px);
+  }
+
+  .price-text p:not(:last-child)
+  {
+    margin-bottom: 20px;
+  }
+}
+
+/* ========= menu.html ========= */
+
+/* === 冒頭の説明 === */
+
+.explain article:first-child
+{
+  margin-bottom: 70px;
+}
+
+/* === 生ビール === */
+
+.beer-menu tr td:first-child
+{
+  padding-right: 30px;
+  padding-bottom: 15px;
+}
+
+@media (min-width: 769px)
+{
+  .beer-menu tr td:first-child
+  {
+    padding-right: 50px;
+    padding-bottom: 25px;
+  }
+}
+
+/* === 焼酎以降 === */
+
+h4
+{
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menu.text-wrapper>*:not(:last-child)
+{
+  margin-bottom: 30px;
+}
+
+.menu-group img
+{
+  height: 20px;
+  vertical-align: middle;
+}
+
+.menu-group tr
+{
+  height: 35px;
+}
+
+.menu-group tr td:first-child
+{
+  width: 32px;
+}
