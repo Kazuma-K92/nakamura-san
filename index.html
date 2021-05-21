@@ -167,9 +167,12 @@
     $(function () {
       $('.copy-group').css('opacity', '0.0');
 
-      $(this).addClass('FadeInAnimation');
+      
     });
 
+    $(window).load(function(){
+      $(this).addClass('FadeInAnimation');
+    });
     ///////////////////////
     // グーグルマップの高さ設定
 
@@ -179,7 +182,7 @@
     // ウィンドウのリサイズ時に実行
     $(window).resize(SetGoogleH);
 
-    function SetGoogleH(params) {
+    function SetGoogleH() {
       if( window.matchMedia('(min-width: 993px)').matches )
       {
         var storeH = $('.store-info').height();
