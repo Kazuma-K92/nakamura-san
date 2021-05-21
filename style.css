@@ -239,6 +239,13 @@ nav
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+
+.FadeInAnimation
+{
+  animation-name: FadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
 @keyframes FadeIn
 {
   0%
