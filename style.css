@@ -234,29 +234,6 @@ nav
   left: 0;
   padding: 20px 10px;
   background-color: #fff;
-
-  animation-name: FadeIn;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-.FadeInAnimation
-{
-  animation-name: FadeIn;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-@keyframes FadeIn
-{
-  0%
-  {
-    opacity: 0;
-  }
-  100%
-  {
-    opacity: 1;
-    transform: translate(0);
-  }
 }
 
 .copy-main
@@ -432,7 +409,7 @@ nav
 
 /* === コロナ関連情報 === */
 
-.covid *
+.covid>*
 {
   margin-bottom: 30px;
 }
@@ -448,8 +425,18 @@ nav
   object-fit: contain;
 }
 
+.covid-img-group img:first-child
+  {
+    margin-bottom: 30px;
+  }
+
 @media (min-width: 769px)
 {
+  .covid>*
+  {
+    margin-bottom: 50px;
+  }
+  
   .covid p
   {
     font-size: 20px;

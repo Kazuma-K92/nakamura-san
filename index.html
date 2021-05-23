@@ -162,12 +162,12 @@
 
     ///////////////////////
     // コピー文をフェードイン
-    $(function () {
-      $('.copy-group').css('opacity', '0.0');
-    });
+    $('head').append(
+      '<style>.copy-group{display:none;}'
+    );
 
     $(window).on('load', function(){
-      $(this).addClass('FadeInAnimation');
+      $('.copy-group').fadeIn(1500);
     });
 
     ///////////////////////
